@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Bina!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .cursive { font-family: 'Dancing Script', cursive; }
+
+        .surprise-btn {
+            background: #ff477e;
+            box-shadow: 0 10px 20px rgba(255, 71, 126, 0.3);
+            cursor: pointer;
+        }
+
+        .bina-img {
+            border: 8px solid white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="start" class="text-center z-10">
+        <div class="text-7xl mb-6">🎂</div>
+        <h1 class="text-3xl font-bold text-white mb-8">Bina-r Surprise ready!</h1>
+        <button onclick="reveal()" class="surprise-btn text-white px-10 py-4 rounded-full text-xl font-bold">
+            Tap Koro 🎁
+        </button>
+    </div>
+
+    <div id="main" class="hidden flex-col items-center justify-center p-6 text-center z-20">
+        <h1 class="cursive text-5xl md:text-7xl text-white mb-6">Happy Birthday Bina!</h1>
+        
+        <div class="mb-6">
+            <!-- Eikhane 'bina.jpg' naam-ti EXACTLY milte hobe -->
+            <img src="bina.jpg" alt="Bina" class="bina-img w-64 h-80 object-cover rounded-xl mx-auto">
+        </div>
+
+        <div class="bg-white/30 backdrop-blur-md p-6 rounded-2xl text-white max-w-sm">
+            <p class="text-lg italic font-medium">"Wish you all the happiness! May your day be as beautiful as you are."</p>
+            <p class="mt-4 text-3xl">🎈🎊🍰✨</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        function reveal() {
+            document.getElementById('start').classList.add('hidden');
+            const main = document.getElementById('main');
+            main.classList.remove('hidden');
+            main.classList.add('flex');
+
+            // Confetti Blast
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+    </script>
+</body>
+</html>
+
